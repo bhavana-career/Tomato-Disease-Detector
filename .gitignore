@@ -6,7 +6,7 @@ __pycache__/
 
 .env
 
-*.h5
+#*.h5
 
 node_modules/
 dist/
