@@ -148,7 +148,7 @@ tomato_ml/
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 ## 1. Clone Repository
 
@@ -260,7 +260,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 🔌 API Endpoints
+#  API Endpoints
 
 ## Home
 
@@ -317,7 +317,7 @@ Multipart form-data containing image file.
 
 ---
 
-# 🖼️ Example Prediction
+#  Example Prediction
 
 Input:
 
@@ -430,3 +430,7 @@ Built as a full-stack machine learning project combining deep learning, backend 
 * Tailwind CSS
 * Lovable
 * Open Source Community
+
+# Demo 
+
+https://tomaai.lovable.app/
