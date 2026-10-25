@@ -8,6 +8,7 @@ import { ResultCard, type PredictionResult } from "./ResultCard";
 
 const ACCEPTED = ["image/jpeg", "image/jpg", "image/png"];
 const MAX_SIZE = 10 * 1024 * 1024;
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/+$/, "");
 
 export function UploadCard() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,7 +57,7 @@ export function UploadCard() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await fetch("http://127.0.0.1:8000/predict", {
+      const res = await fetch(`${API_BASE_URL}/predict`, {
         method: "POST",
         body: formData,
       });
@@ -68,7 +69,7 @@ export function UploadCard() {
       toast.error("Analysis failed", {
         description:
           err instanceof Error
-            ? `${err.message}. Ensure the API at 127.0.0.1:8000 is running.`
+            ? `${err.message}. Ensure the API at ${API_BASE_URL} is running.`
             : "Could not reach the prediction service.",
       });
     } finally {

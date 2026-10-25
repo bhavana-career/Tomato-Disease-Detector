@@ -1,3 +1,4 @@
+from pathlib import Path
 from fastapi import FastAPI, UploadFile, File
 import tensorflow as tf
 import numpy as np
@@ -9,13 +10,12 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-model = tf.keras.models.load_model(
-    "../ml/models/tomato_model.h5"
-)
+MODEL_PATH = Path(__file__).resolve().parent.parent / "ml" / "models" / "tomato_model.h5"
+model = tf.keras.models.load_model(MODEL_PATH)
 
 DISEASE_INFO = {
     "Early Blight": {
